@@ -1,27 +1,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int countOfEvenDigits(int num)
+int countEvenDigits(int num)
 {
-    if (num==0)
+    if (!num)
         return 0;
-
-    if ((num%10)%2==0)
-        return 1 + countOfEvenDigits(num/10);
+    if (num%2==0)
+        return 1 + countEvenDigits(num/10);
     else
-        return countOfEvenDigits(num/10);
+        return countEvenDigits(num/10);
 }
 
 void readNumbers(int n)
 {
-    if (n==0)
-        return 0;
-
     int number;
+    if (!n)
+        return 0;
     scanf("%d", &number);
-    printf ("%d\n", countOfEvenDigits(number));
-
-    readNumbers(n-1);
+    printf ("%d\n", countEvenDigits(number));
+    return readNumbers(n-1);
 }
 
 int main()
