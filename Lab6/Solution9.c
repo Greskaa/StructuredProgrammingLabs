@@ -3,14 +3,15 @@
 
 void Triangle(int number)
 {
-    if (!number)
-        return;
+    if (number)
+    {
+        for (int i=1; i<=number; i++)
+            printf ("%d ", i);
 
-    for (int i=1; i<=number; i++)
-        printf ("%d ", i);
-
-    printf ("\n");
-    return Triangle(number-1);
+        printf ("\n");
+    }
+    if (number)
+        Triangle(number-1);
 }
 
 int main()
